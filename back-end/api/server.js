@@ -16,12 +16,12 @@ app.get("/", (request, response) => {
 
 app.get("/artists", async (request, response) => {
     //response.send(artistArray);
-    response.send(await db.collection("artists").find({}).toArray());
+    response.send(await db.collection(process.env.STRING_COLLECTION_ARTISTS).find({}).toArray());
 })
 
 app.get("/songs", async (request, response) => {
     //response.send(songsArray);
-    response.send(await db.collection("songs").find({}).toArray());
+    response.send(await db.collection(process.env.STRING_COLLECTION_SONGS).find({}).toArray());
 })
 
 app.listen(PORT, () => {
